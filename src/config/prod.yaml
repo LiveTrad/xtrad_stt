@@ -1,19 +1,18 @@
-
 stt:
   model: faster_whisper
-  model_name: null
+  model_name: livetrad/faster-whisper-swahili
   device: cuda
-  real_time: false
-  streaming: false
+  real_time: true
+  streaming: true
   vad_enabled: true
   language: sw
-  cache_enabled: false
-  cache_redis_url: null
-  cache_ttl: 3600
+  cache_enabled: true
+  cache_redis_url: redis://localhost:6379/0
+  cache_ttl: 86400
   log_level: INFO
   log_file: logs/xtrad_stt.log
-  max_concurrency: 4
-  batch_size: 1
+  max_concurrency: 8
+  batch_size: 4
   model_path: null
   edge_mode: false
   vad_sensitivity: 0.5

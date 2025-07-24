@@ -1,8 +1,7 @@
-
 stt:
-  model: faster_whisper
-  model_name: null
-  device: cuda
+  model: vosk
+  model_name: vosk/swahili
+  device: cpu
   real_time: false
   streaming: false
   vad_enabled: true
@@ -12,10 +11,10 @@ stt:
   cache_ttl: 3600
   log_level: INFO
   log_file: logs/xtrad_stt.log
-  max_concurrency: 4
+  max_concurrency: 1
   batch_size: 1
   model_path: null
-  edge_mode: false
-  vad_sensitivity: 0.5
+  edge_mode: true
+  vad_sensitivity: 0.3
   min_speech_duration: 0.1
-  max_speech_duration: 10.0
+  max_speech_duration: 5.0
