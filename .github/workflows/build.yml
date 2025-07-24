@@ -1,0 +1,24 @@
+name: Build and Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+    - name: Install Poetry
+      run: pip install poetry
+    - name: Build package
+      run: poetry build
+    - name: Publish to PyPI
+      env:
+        PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+      run: poetry publish --username __token__ --password $PYPI_TOKEN
